@@ -4,3 +4,12 @@ author: "Liz Bekerman"
 date: 2023-09-23
 output: github_document
 ---
+
+Setup code to include loading the moderndive library.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(moderndive)
+```
+
