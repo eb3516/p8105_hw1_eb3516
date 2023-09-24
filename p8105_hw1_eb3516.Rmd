@@ -5,7 +5,7 @@ date: 2023-09-23
 output: github_document
 ---
 
-Setup code to include loading the moderndive library.
+Setup code to load libraries & open dataset.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -43,14 +43,56 @@ ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geo
 ggsave("HW1_Problem1_Graph.pdf")
 ```
 
+This plot shows that as time_hour increases, temp increases.
 
 
+#Problem 2
 
+#Create dataframe
+```{r}
+norm_sample=rnorm(10,0,1)
+df=data.frame(norm_spl=norm_sample,
+              bool_spl=norm_sample>0,
+              char_spl=LETTERS[1:10],
+              factor_spl=factor(rep(1:3, length.out=10),
+              levels=1:3))
+set.seed(1)
+```
 
+#Attempt to calculate means of each vector
+```{r}
+df%>% pull(norm_spl) %>% mean
+```
 
+```{r}
+df%>% pull(bool_spl) %>% mean
+```
 
+```{r}
+df%>% pull(char_spl) %>% mean
+```
 
+```{r}
+df%>% pull(factor_spl) %>% mean
+```
 
+Taking the mean from norm_spl and bool_spl works. Taking the mean from char_spl and factor_spl doesn't work because they don't contain numeric variables.
 
+#Attempt to convert vectors to numeric variables for bool_spl, char_spl, and factor_spl
+```{r}
+as.numeric(df$bool_spl)
+```
 
+```{r}
+as.numeric(df$char_spl)
+```
 
+```{r}
+as.numeric(df$factor_spl)
+```
+
+Since bool_spl is a binary true/false, it is translated to binary 0/1.
+Char_spl consists of nominal data and therefore as.numeric produces NA values.
+Factor_spl is translated into categorical data, labeled 1, 2, and 3.
+
+As.numeric helps explains why the mean is unable to be calculated for char_spl and factor_spl because they are not assigned a numeric value, rather NA (char_spl) or assigned a group (factor).
