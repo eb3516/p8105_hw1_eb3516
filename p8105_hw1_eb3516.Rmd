@@ -13,3 +13,25 @@ library(tidyverse)
 library(moderndive)
 ```
 
+#Problem 1
+
+This is the code to load early_january_weather dataset and get the details of the dataset.
+
+```{r}
+data("early_january_weather")
+early_january_weather
+nrow(early_january_weather)
+ncol(early_january_weather)
+```
+
+The dataset early_january_weather has variables origin, year, month, day, hour, temp, dewp, humid, win_dir, wind_speed, wind_gust, precip, pressure, visib, and time_hour. All the data has origin EWR and measures hourly weather factors from January 1 - Jan 15, 2013.
+
+According to nrow there are 358 rows and according to ncol there are 15 columns.
+
+```{r}
+mean(early_january_weather$temp)
+```
+
+The mean temperature is 39.6 degrees.
+
+
