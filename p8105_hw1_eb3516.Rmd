@@ -34,4 +34,23 @@ mean(early_january_weather$temp)
 
 The mean temperature is 39.6 degrees.
 
+#Problem 1 Plots
+
+This is the code for plotting time_hour by temp, colored by humid, from early_january_weather dataset.
+
+```{r plots, echo=FALSE}
+ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
+ggsave("HW1_Problem1_Graph.pdf")
+```
+
+
+
+
+
+
+
+
+
+
+
 
